@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "lambda" {
-  count = "${! var.lambda_role_arn ? 1 : 0}"
+  count = "${! var.lambda_role_name ? 1 : 0}"
   name               = "${var.function_name}"
   assume_role_policy = "${data.aws_iam_policy_document.assume_role.json}"
 }

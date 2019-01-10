@@ -78,7 +78,7 @@ function name unique per region, for example by setting
 | function\_name | A unique name for your Lambda function (and related IAM resources) | string | n/a | yes |
 | handler | The function entrypoint in your code | string | n/a | yes |
 | memory\_size | Amount of memory in MB your Lambda function can use at runtime | string | `"128"` | no |
-| lambda_role_arn | A role to use for the lambda | string | `""` | no |
+| lambda_role_name | The friendly name of a role to use for the lambda | string | `""` | no |
 | policy | An addional policy to attach to the Lambda function | string | `""` | no |
 | reserved\_concurrent\_executions | The amount of reserved concurrent executions for this Lambda function | string | `"0"` | no |
 | runtime | The runtime environment for the Lambda function | string | n/a | yes |
