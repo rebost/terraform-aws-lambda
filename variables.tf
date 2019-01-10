@@ -78,6 +78,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "use_pre_existing_role" {
+  description = "The friendly name of a pre-existing role to attach to the Lambda function"
+  type        = "string"
+  default     = false
+}
+
 variable "lambda_role_name" {
   description = "The friendly name of a pre-existing role to attach to the Lambda function"
   type        = "string"
