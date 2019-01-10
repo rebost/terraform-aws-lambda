@@ -78,6 +78,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "lambda_role_arn" {
+  description = "A pre-existing role to attach to the Lambda function"
+  type        = "string"
+  default     = ""
+}
+
 variable "policy" {
   description = "An addional policy to attach to the Lambda function"
   type        = "string"

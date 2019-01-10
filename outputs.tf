@@ -9,11 +9,13 @@ output "function_name" {
 }
 
 output "role_arn" {
+  count = "${! var.lambda_role_arn ? 1 : 0}"
   description = "The ARN of the IAM role created for the Lambda function"
   value       = "${aws_iam_role.lambda.arn}"
 }
 
 output "role_name" {
+  count = "${! var.lambda_role_arn ? 1 : 0}"
   description = "The name of the IAM role created for the Lambda function"
   value       = "${aws_iam_role.lambda.name}"
 }
