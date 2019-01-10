@@ -8,7 +8,7 @@ resource "aws_lambda_function" "lambda" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.lambda_role_arn ? 1 : ${aws_iam_role.lambda.arn}"
+  role                           = "${! var.lambda_role_arn ? 1 : aws_iam_role.lambda.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
@@ -51,7 +51,7 @@ resource "aws_lambda_function" "lambda_with_dl" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.lambda_role_arn ? 1 : ${aws_iam_role.lambda.arn}"
+  role                           = "${! var.lambda_role_arn ? 1 : aws_iam_role.lambda.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
@@ -78,7 +78,7 @@ resource "aws_lambda_function" "lambda_with_vpc" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.lambda_role_arn ? 1 : ${aws_iam_role.lambda.arn}"
+  role                           = "${! var.lambda_role_arn ? 1 : aws_iam_role.lambda.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
