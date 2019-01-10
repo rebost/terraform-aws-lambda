@@ -90,6 +90,12 @@ variable "lambda_role_name" {
   default     = ""
 }
 
+variable "lambda_role_arn" {
+  description = "The arn of a pre-existing role to attach to the Lambda function"
+  type        = "string"
+  default     = ""
+}
+
 variable "policy" {
   description = "An addional policy to attach to the Lambda function"
   type        = "string"
