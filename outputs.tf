@@ -10,10 +10,10 @@ output "function_name" {
 
 output "role_arn" {
   description = "The ARN of the IAM role created for the Lambda function"
-  value       = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.lambda_role_arn}"
+  value       = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.role_arn}"
 }
 
 output "role_name" {
   description = "The name of the IAM role created for the Lambda function"
-  value       = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.lambda_role_name}"
+  value       = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.role_name}"
 }

@@ -84,20 +84,20 @@ variable "use_pre_existing_role" {
   default     = false
 }
 
-variable "lambda_role_name" {
+variable "role_name" {
   description = "The friendly name of a pre-existing role to attach to the Lambda function"
   type        = "string"
   default     = ""
 }
 
-variable "lambda_role_arn" {
+variable "role_arn" {
   description = "The arn of a pre-existing role to attach to the Lambda function"
   type        = "string"
   default     = ""
 }
 
 variable "policy" {
-  description = "An addional policy to attach to the Lambda function"
+  description = "An additional policy to attach to the Lambda function"
   type        = "string"
   default     = ""
 }
