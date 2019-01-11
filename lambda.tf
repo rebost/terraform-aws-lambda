@@ -8,7 +8,7 @@ resource "aws_lambda_function" "lambda" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.role_arn}"
+  role                           = "${var.use_pre_existing_role ? var.role_arn : aws_iam_role.lambda.0.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
@@ -51,7 +51,7 @@ resource "aws_lambda_function" "lambda_with_dl" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.role_arn}"
+  role                           = "${var.use_pre_existing_role ? var.role_arn : aws_iam_role.lambda.0.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
@@ -78,7 +78,7 @@ resource "aws_lambda_function" "lambda_with_vpc" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.role_arn}"
+  role                           = "${var.use_pre_existing_role ? var.role_arn : aws_iam_role.lambda.0.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
@@ -109,7 +109,7 @@ resource "aws_lambda_function" "lambda_with_dl_and_vpc" {
 
   function_name                  = "${var.function_name}"
   description                    = "${var.description}"
-  role                           = "${! var.use_pre_existing_role ? aws_iam_role.lambda.0.arn : var.role_arn}"
+  role                           = "${var.use_pre_existing_role ? var.role_arn : aws_iam_role.lambda.0.arn}"
   handler                        = "${var.handler}"
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
