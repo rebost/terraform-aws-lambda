@@ -31,6 +31,11 @@ module "lambda" {
   // Specify a file or directory for the source code.
   source_path = "${path.module}/lambda.py"
 
+  // Use a pre-existing role.
+  use_pre_existing_role = true
+  role_name             = "${aws_iam_role.lambda_role.name}"
+  role_arn              = "${aws_iam_role.lambda_role.arn}"
+
   // Attach a policy.
   attach_policy = true
   policy        = "${data.aws_iam_policy_document.lambda.json}"
@@ -78,6 +83,7 @@ function name unique per region, for example by setting
 | function\_name | A unique name for your Lambda function (and related IAM resources) | string | n/a | yes |
 | handler | The function entrypoint in your code | string | n/a | yes |
 | memory\_size | Amount of memory in MB your Lambda function can use at runtime | string | `"128"` | no |
+| use\_pre\_existing\_role | Set this to true if using the role_name/role_arn variables | string | `"false"` | no |
 | role_name | The friendly name of a role to use for the lambda | string | `""` | no |
 | role_arn | The arn of a role to use for the lambda | string | `""` | no |
 | policy | An additional policy to attach to the Lambda function | string | `""` | no |
@@ -94,5 +100,5 @@ function name unique per region, for example by setting
 |------|-------------|
 | function\_arn | The ARN of the Lambda function |
 | function\_name | The name of the Lambda function |
-| role\_arn | The ARN of the IAM role created for the Lambda function |
-| role\_name | The name of the IAM role created for the Lambda function |
+| role\_arn | The ARN of the IAM role created/used for the Lambda function |
+| role\_name | The name of the IAM role created/used for the Lambda function |
