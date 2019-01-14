@@ -60,7 +60,8 @@ resource "aws_iam_policy_attachment" "logs" {
   count = "${var.enable_cloudwatch_logs ? 1 : 0}"
 
   name       = "${var.function_name}-logs"
-  roles      = ["${aws_iam_role.lambda.0.name}"]
+  # roles      = ["${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.role_name}"]
+  roles      = ["${! var.use_pre_existing_role ? var.role_name : var.role_name}"]
   policy_arn = "${aws_iam_policy.logs.arn}"
 }
 
@@ -94,7 +95,8 @@ resource "aws_iam_policy_attachment" "dead_letter" {
   count = "${var.attach_dead_letter_config ? 1 : 0}"
 
   name       = "${var.function_name}-dl"
-  roles      = ["${aws_iam_role.lambda.0.name}"]
+  # roles      = ["${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.role_name}"]
+  roles      = ["${! var.use_pre_existing_role ? var.role_name : var.role_name}"]
   policy_arn = "${aws_iam_policy.dead_letter.arn}"
 }
 
@@ -127,7 +129,8 @@ resource "aws_iam_policy_attachment" "network" {
   count = "${var.attach_vpc_config ? 1 : 0}"
 
   name       = "${var.function_name}-network"
-  roles      = ["${aws_iam_role.lambda.0.name}"]
+  # roles      = ["${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.role_name}"]
+  roles      = ["${! var.use_pre_existing_role ? var.role_name : var.role_name}"]
   policy_arn = "${aws_iam_policy.network.arn}"
 }
 
@@ -144,6 +147,7 @@ resource "aws_iam_policy_attachment" "additional" {
   count = "${var.attach_policy ? 1 : 0}"
 
   name       = "${var.function_name}"
-  roles      = ["${aws_iam_role.lambda.0.name}"]
+  # roles      = ["${! var.use_pre_existing_role ? aws_iam_role.lambda.0.name : var.role_name}"]
+  roles      = ["${! var.use_pre_existing_role ? var.role_name : var.role_name}"]
   policy_arn = "${aws_iam_policy.additional.arn}"
 }
